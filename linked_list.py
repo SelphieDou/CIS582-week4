@@ -28,26 +28,25 @@ M4BlockChain.append(create_genesis_block())
 def next_block(last_block):
 	if last_block is None:
 		return None
-
-    current_block = create_genesis_block()
-    current_block.index = last_block.index + 1
-    current_block.timestamp = datetime.now()
-    current_block.content = "this is block" + str(last_block.index + 1)
-    current_block.previous_hash = last_block.hash
-    current_block.hash = current_block.calc_hash()
-    return current_block
+	current_block = create_genesis_block()
+	current_block.index = last_block.index + 1
+	current_block.timestamp = datetime.now()
+	current_block.content = "this is block" + str(last_block.index + 1)
+	current_block.previous_hash = last_block.hash
+	current_block.hash = current_block.calc_hash()
+	return current_block
 
     
 # append 5 blocks to the blockchain
 def app_five(block_list):
-    i = 0
-    l = len(block_list)
-    while i < 5:
-    	temp_block = next_block(block_list[l-1])
-    	block_list.append(temp_block)
-    	i = i + 1
-    	l = l + 1
-    pass
+	i = 0
+	l = len(block_list)
+	while i < 5:
+		temp_block = next_block(block_list[l-1])
+		block_list.append(temp_block)
+		i = i + 1
+		l = l + 1
+	pass
 
 
 
